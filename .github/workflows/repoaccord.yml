@@ -19,7 +19,7 @@ jobs:
   repoaccord:
     runs-on: ubuntu-latest
     steps:
-      # Sandbox only: this tracks main for testing. Real repositories must pin a release tag or a full commit SHA.
+        # Pinned to a release tag. Real repositories should pin a release tag or a full commit SHA.
       - uses: sensiwolf/repoaccord@v0.1.0
         with:
           token: ${{ secrets.REPOACCORD_TOKEN }}
