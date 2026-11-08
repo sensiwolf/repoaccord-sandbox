@@ -1,0 +1,6 @@
+version: 1
+branches:
+  prefixes: [feat/, fix/, docs/, chore/]
+auto_merge:
+  enabled: true
+  method: merge
