@@ -20,7 +20,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         # Pinned to a release tag. Real repositories should pin a release tag or a full commit SHA.
+      - id: app-token
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        with:
+          client-id: ${{ vars.REPOACCORD_CLIENT_ID }}
+          private-key: ${{ secrets.REPOACCORD_APP_PRIVATE_KEY }}
       - uses: sensiwolf/repoaccord@v0.1.0
         with:
-          token: ${{ secrets.REPOACCORD_TOKEN }}
+          token: ${{ steps.app-token.outputs.token }}
           dry-run: ${{ vars.REPOACCORD_DRY_RUN || 'true' }}
